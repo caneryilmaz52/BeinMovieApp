@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/movieList">
+
+    <fragment
+        android:id="@+id/movieList"
+        android:name="com.caneryilmazapps.beinmovieapp.ui.fragments.movieList.MovieListFragment"
+        android:label="MovieList"
+        tools:layout="@layout/fragment_movie_list">
+
+        <action
+            android:id="@+id/action_movieListFragment_to_movieDetailFragment"
+            app:destination="@id/movieDetail"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/movieDetail"
+        android:name="com.caneryilmazapps.beinmovieapp.ui.fragments.movieDetail.MovieDetailFragment"
+        android:label="MovieDetail"
+        tools:layout="@layout/fragment_movie_detail">
+
+        <argument
+            android:name="movieItem"
+            app:argType="com.caneryilmazapps.beinmovieapp.data.models.response.Movie" />
+
+        <argument
+            android:name="genreString"
+            app:argType="string" />
+
+    </fragment>
+
+</navigation>
